@@ -3,28 +3,31 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, MapPin, Network, Code, Globe, Lightbulb, ArrowRight } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
-
 const Index = () => {
   const [showHearts, setShowHearts] = useState(false);
-  const [hearts, setHearts] = useState<{ id: number; left: string }[]>([]);
-
+  const [hearts, setHearts] = useState<{
+    id: number;
+    left: string;
+  }[]>([]);
   const createHeart = useCallback(() => {
     const id = Date.now();
     const left = `${Math.random() * 100}%`;
-    return { id, left };
+    return {
+      id,
+      left
+    };
   }, []);
-
   const handleHeartHover = () => {
     setShowHearts(true);
-    const newHearts = Array.from({ length: 15 }, createHeart);
+    const newHearts = Array.from({
+      length: 15
+    }, createHeart);
     setHearts(newHearts);
-
     setTimeout(() => {
       setShowHearts(false);
       setHearts([]);
     }, 2000);
   };
-
   const featuredCommunities = [{
     name: "Stockholm Tech Hub",
     type: "Local",
@@ -62,29 +65,21 @@ const Index = () => {
     description: "Collaborate with London's brightest minds on cutting-edge tech solutions.",
     icon: Lightbulb
   }];
-
   return <div className="min-h-screen">
       <div className={`heart-shower ${showHearts ? 'active' : ''}`}>
-        {hearts.map(heart => (
-          <div
-            key={heart.id}
-            className="floating-heart"
-            style={{ left: heart.left }}
-          />
-        ))}
+        {hearts.map(heart => <div key={heart.id} className="floating-heart" style={{
+        left: heart.left
+      }} />)}
       </div>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <div 
-              className="heart animate-heartbeat"
-              onMouseEnter={handleHeartHover}
-            />
+            <div className="heart animate-heartbeat" onMouseEnter={handleHeartHover} />
             <Badge variant="secondary" className="mb-6 animate-fadeIn">
               Join the Community
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">Connect, Collaborate, and Grow with Fellow Lovpreneurs</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">Connect + Collaborate + Grow = Lovpreneurs</h1>
             <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
             <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
               <Button size="lg">
@@ -136,5 +131,4 @@ const Index = () => {
       </section>
     </div>;
 };
-
 export default Index;
