@@ -106,10 +106,10 @@ const Index = () => {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
             <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
-              <Link to="/signup">
-                <Button size="lg">
+              <Link to="/signup" className="cta-button-wrapper">
+                <Button size="lg" className="cta-button bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
                   Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 animate-bounce-x" />
                 </Button>
               </Link>
               <Button variant="outline" size="lg">

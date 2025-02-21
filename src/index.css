@@ -175,3 +175,42 @@
   50%, 80% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-10px); }
 }
+
+.cta-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cta-button-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(to right, #818cf8, #c084fc, #f472b6);
+  border-radius: 0.75rem;
+  z-index: -1;
+  animation: pulse-border 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-x {
+  animation: bounce-x 1s infinite;
+}
