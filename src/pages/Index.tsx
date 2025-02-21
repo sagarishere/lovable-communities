@@ -1,12 +1,95 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Users, MapPin, Network, ArrowRight } from "lucide-react";
 
 const Index = () => {
+  const featuredCommunities = [
+    {
+      name: "Stockholm Tech Hub",
+      type: "Local",
+      members: 234,
+      description: "Connect with fellow entrepreneurs in Stockholm's vibrant tech scene.",
+      icon: MapPin,
+    },
+    {
+      name: "App Distribution Network",
+      type: "Thematic",
+      members: 567,
+      description: "Share strategies and insights about app distribution and growth.",
+      icon: Network,
+    },
+  ];
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="container px-4 mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge variant="secondary" className="mb-6 animate-fadeIn">
+              Join the Community
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">
+              Connect, Collaborate, and Grow with Fellow Entrepreneurs
+            </h1>
+            <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">
+              Join thriving communities of entrepreneurs, share insights, and build meaningful connections
+              that help your business grow.
+            </p>
+            <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
+              <Button size="lg">
+                Get Started
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+              <Button variant="outline" size="lg">
+                Explore Communities
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Communities */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container px-4 mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Featured Communities</h2>
+            <p className="text-muted-foreground">
+              Join active communities that match your interests and location
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {featuredCommunities.map((community) => (
+              <Card key={community.name} className="glass-card p-6 transition-all duration-300 hover:translate-y-[-4px]">
+                <div className="flex items-start gap-4">
+                  <div className={`p-3 rounded-lg ${
+                    community.type === "Local" ? "bg-community-local" : "bg-community-thematic"
+                  }`}>
+                    <community.icon className="h-6 w-6" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="font-semibold">{community.name}</h3>
+                      <Badge variant="secondary" className="text-xs">
+                        {community.type}
+                      </Badge>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4">
+                      {community.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Users className="h-4 w-4" />
+                      <span>{community.members} members</span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
