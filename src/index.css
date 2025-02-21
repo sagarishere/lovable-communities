@@ -43,7 +43,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
-    background: linear-gradient(to bottom right, #F2FCE2, #FEF7CD, #FEC6A1);
+    background: linear-gradient(to bottom right, #E7F0FD, #FED6E3, #D3CCED);
     min-height: 100vh;
   }
 }
@@ -59,7 +59,7 @@
 .heart::before,
 .heart::after {
   content: '';
-  @apply absolute w-full h-full rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 animate-gradient;
+  @apply absolute w-full h-full rounded-full bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 animate-gradient;
 }
 
 .heart::before {
@@ -87,7 +87,7 @@
 .floating-heart::before,
 .floating-heart::after {
   content: '';
-  @apply absolute w-full h-full rounded-full bg-gradient-to-r from-pink-300 via-purple-300 to-pink-300;
+  @apply absolute w-full h-full rounded-full bg-gradient-to-r from-indigo-300 via-purple-400 to-pink-300;
 }
 
 .floating-heart::before {
