@@ -161,6 +161,10 @@
   animation: blink 1s infinite;
 }
 
+.gradient-text {
+  @apply bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
