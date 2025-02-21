@@ -3,12 +3,27 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, MapPin, Network, Code, Globe, Lightbulb, ArrowRight } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
+
 const Index = () => {
   const [showHearts, setShowHearts] = useState(false);
+  const [displayText, setDisplayText] = useState("Connect");
   const [hearts, setHearts] = useState<{
     id: number;
     left: string;
   }[]>([]);
+
+  const words = ["Connect", "Collaborate", "Grow"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex((prev) => (prev + 1) % words.length);
+      setDisplayText(words[(currentWordIndex + 1) % words.length]);
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, [currentWordIndex]);
+
   const createHeart = useCallback(() => {
     const id = Date.now();
     const left = `${Math.random() * 100}%`;
@@ -17,6 +32,7 @@ const Index = () => {
       left
     };
   }, []);
+
   const handleHeartHover = () => {
     setShowHearts(true);
     const newHearts = Array.from({
@@ -28,6 +44,7 @@ const Index = () => {
       setHearts([]);
     }, 2000);
   };
+
   const featuredCommunities = [{
     name: "Stockholm Tech Hub",
     type: "Local",
@@ -65,6 +82,7 @@ const Index = () => {
     description: "Collaborate with London's brightest minds on cutting-edge tech solutions.",
     icon: Lightbulb
   }];
+
   return <div className="min-h-screen">
       <div className={`heart-shower ${showHearts ? 'active' : ''}`}>
         {hearts.map(heart => <div key={heart.id} className="floating-heart" style={{
@@ -79,7 +97,10 @@ const Index = () => {
             <Badge variant="secondary" className="mb-6 animate-fadeIn">
               Join the Community
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">Connect + Collaborate + Grow = Lovpreneurs</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">
+              <span className="typing-text">{displayText}</span>
+              <span className="text-foreground"> = Lovpreneurs</span>
+            </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
             <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
               <Button size="lg">
@@ -131,4 +152,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;

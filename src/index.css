@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -147,4 +146,28 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.typing-text {
+  @apply inline-block min-w-[200px] bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-400 bg-clip-text text-transparent;
+  position: relative;
+  animation: fadeInOut 2s infinite;
+}
+
+.typing-text::after {
+  content: '|';
+  position: absolute;
+  right: -4px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeInOut {
+  0%, 20% { opacity: 0; transform: translateY(10px); }
+  50%, 80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
 }
