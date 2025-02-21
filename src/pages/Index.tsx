@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Users, MapPin, Network, Code, Globe, Lightbulb } from "lucide-react";
+import { Users, MapPin, Network, Code, Globe, Lightbulb, ArrowRight } from "lucide-react";
 
 const Index = () => {
   const featuredCommunities = [{
