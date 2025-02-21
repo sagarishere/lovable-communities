@@ -1,7 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Users, MapPin, Network, ArrowRight } from "lucide-react";
+import { Users, MapPin, Network, Code, Globe, Lightbulb } from "lucide-react";
+
 const Index = () => {
   const featuredCommunities = [{
     name: "Stockholm Tech Hub",
@@ -15,7 +17,32 @@ const Index = () => {
     members: 567,
     description: "Share strategies and insights about app distribution and growth.",
     icon: Network
+  }, {
+    name: "Berlin Startup Circle",
+    type: "Local",
+    members: 342,
+    description: "Join Berlin's most active community of tech entrepreneurs and innovators.",
+    icon: MapPin
+  }, {
+    name: "AI Integration Guild",
+    type: "Thematic",
+    members: 891,
+    description: "Explore AI integration strategies and best practices for your applications.",
+    icon: Code
+  }, {
+    name: "Global Founders Network",
+    type: "Thematic",
+    members: 1205,
+    description: "Connect with founders worldwide and share your entrepreneurial journey.",
+    icon: Globe
+  }, {
+    name: "London Innovation Lab",
+    type: "Local",
+    members: 456,
+    description: "Collaborate with London's brightest minds on cutting-edge tech solutions.",
+    icon: Lightbulb
   }];
+
   return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
@@ -76,4 +103,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
