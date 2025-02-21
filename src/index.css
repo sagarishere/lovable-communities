@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -48,6 +47,44 @@
 
 .glass-card {
   @apply bg-white bg-opacity-50 backdrop-blur-lg border border-white border-opacity-20 shadow-lg;
+}
+
+.heart {
+  @apply relative w-16 h-16 transform -rotate-45 mx-auto mb-8;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  @apply absolute w-full h-full rounded-full bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 animate-gradient;
+}
+
+.heart::before {
+  @apply -left-1/2;
+}
+
+.heart::after {
+  @apply -top-1/2;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1) rotate(-45deg); }
+  50% { transform: scale(1.1) rotate(-45deg); }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
 }
 
 .fade-in {

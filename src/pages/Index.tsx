@@ -48,6 +48,7 @@ const Index = () => {
       <section className="relative py-20 overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
+            <div className="heart animate-heartbeat" />
             <Badge variant="secondary" className="mb-6 animate-fadeIn">
               Join the Community
             </Badge>
