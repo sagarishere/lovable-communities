@@ -3,8 +3,29 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, MapPin, Network, Code, Globe, Lightbulb, ArrowRight } from "lucide-react";
+import { useState, useCallback, useEffect } from "react";
 
 const Index = () => {
+  const [showHearts, setShowHearts] = useState(false);
+  const [hearts, setHearts] = useState<{ id: number; left: string }[]>([]);
+
+  const createHeart = useCallback(() => {
+    const id = Date.now();
+    const left = `${Math.random() * 100}%`;
+    return { id, left };
+  }, []);
+
+  const handleHeartHover = () => {
+    setShowHearts(true);
+    const newHearts = Array.from({ length: 15 }, createHeart);
+    setHearts(newHearts);
+
+    setTimeout(() => {
+      setShowHearts(false);
+      setHearts([]);
+    }, 2000);
+  };
+
   const featuredCommunities = [{
     name: "Stockholm Tech Hub",
     type: "Local",
@@ -44,11 +65,23 @@ const Index = () => {
   }];
 
   return <div className="min-h-screen">
+      <div className={`heart-shower ${showHearts ? 'active' : ''}`}>
+        {hearts.map(heart => (
+          <div
+            key={heart.id}
+            className="floating-heart"
+            style={{ left: heart.left }}
+          />
+        ))}
+      </div>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="heart animate-heartbeat" />
+            <div 
+              className="heart animate-heartbeat"
+              onMouseEnter={handleHeartHover}
+            />
             <Badge variant="secondary" className="mb-6 animate-fadeIn">
               Join the Community
             </Badge>
