@@ -54,6 +54,7 @@
 
 .heart {
   @apply relative w-16 h-16 transform -rotate-45 mx-auto mb-8;
+  cursor: pointer;
 }
 
 .heart::before,
@@ -82,6 +83,7 @@
 .floating-heart {
   @apply absolute w-4 h-4 transform -rotate-45;
   animation: float-up 2s ease-in-out forwards;
+  pointer-events: none;
 }
 
 .floating-heart::before,
