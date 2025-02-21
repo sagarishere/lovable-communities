@@ -99,7 +99,7 @@ const Index = () => {
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">
               <span className="typing-text">{displayText}</span>
-              <span className="text-foreground"> = </span>
+              <span className="text-[#F97316]"> = </span>
               <span className="gradient-text">Lovpreneurs</span>
             </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
