@@ -1,29 +1,22 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, MapPin, Network, ArrowRight } from "lucide-react";
-
 const Index = () => {
-  const featuredCommunities = [
-    {
-      name: "Stockholm Tech Hub",
-      type: "Local",
-      members: 234,
-      description: "Connect with fellow entrepreneurs in Stockholm's vibrant tech scene.",
-      icon: MapPin,
-    },
-    {
-      name: "App Distribution Network",
-      type: "Thematic",
-      members: 567,
-      description: "Share strategies and insights about app distribution and growth.",
-      icon: Network,
-    },
-  ];
-
-  return (
-    <div className="min-h-screen">
+  const featuredCommunities = [{
+    name: "Stockholm Tech Hub",
+    type: "Local",
+    members: 234,
+    description: "Connect with fellow entrepreneurs in Stockholm's vibrant tech scene.",
+    icon: MapPin
+  }, {
+    name: "App Distribution Network",
+    type: "Thematic",
+    members: 567,
+    description: "Share strategies and insights about app distribution and growth.",
+    icon: Network
+  }];
+  return <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="container px-4 mx-auto">
@@ -31,13 +24,8 @@ const Index = () => {
             <Badge variant="secondary" className="mb-6 animate-fadeIn">
               Join the Community
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">
-              Connect, Collaborate, and Grow with Fellow Entrepreneurs
-            </h1>
-            <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">
-              Join thriving communities of entrepreneurs, share insights, and build meaningful connections
-              that help your business grow.
-            </p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight animate-fadeIn [animation-delay:200ms]">Connect, Collaborate, and Grow with Fellow Lovpreneurs</h1>
+            <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
             <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
               <Button size="lg">
                 Get Started
@@ -61,12 +49,9 @@ const Index = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {featuredCommunities.map((community) => (
-              <Card key={community.name} className="glass-card p-6 transition-all duration-300 hover:translate-y-[-4px]">
+            {featuredCommunities.map(community => <Card key={community.name} className="glass-card p-6 transition-all duration-300 hover:translate-y-[-4px]">
                 <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-lg ${
-                    community.type === "Local" ? "bg-community-local" : "bg-community-thematic"
-                  }`}>
+                  <div className={`p-3 rounded-lg ${community.type === "Local" ? "bg-community-local" : "bg-community-thematic"}`}>
                     <community.icon className="h-6 w-6" />
                   </div>
                   <div>
@@ -85,13 +70,10 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-              </Card>
-            ))}
+              </Card>)}
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
