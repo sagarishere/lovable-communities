@@ -1,8 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Users, MapPin, Network, Code, Globe, Lightbulb, ArrowRight } from "lucide-react";
 import { useState, useCallback, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const [showHearts, setShowHearts] = useState(false);
@@ -104,10 +106,12 @@ const Index = () => {
             </h1>
             <p className="text-lg text-muted-foreground mb-8 animate-fadeIn [animation-delay:400ms]">Join thriving communities of lovpreneurs, share insights, and build meaningful connections that help your business grow.</p>
             <div className="flex items-center justify-center gap-4 animate-fadeIn [animation-delay:600ms]">
-              <Button size="lg">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+              <Link to="/signup">
+                <Button size="lg">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
               <Button variant="outline" size="lg">
                 Explore Communities
               </Button>
